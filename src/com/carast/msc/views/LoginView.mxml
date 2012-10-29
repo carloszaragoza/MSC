@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+						  xmlns:s="library://ns.adobe.com/flex/spark" 
+						  xmlns:mx="library://ns.adobe.com/flex/mx">
+	
+	<fx:Script>
+		<![CDATA[
+			import flash.net.navigateToURL;
+			
+			import mx.validators.Validator;
+			protected function btnTriggerLoginAccess_clickHandler(event:MouseEvent):void
+			{
+				
+			}
+		]]>
+	</fx:Script>
+	<s:states>
+		<s:State name="LOGIN_STATE"/>
+		<s:State name="RECOVER_PASSWORD_STATE"/>
+	</s:states>
+	
+	<fx:Declarations>
+		<mx:StringValidator id="validUserText" 
+							required="true" 
+							requiredFieldError="Su nombre de usuario es requerido" 
+							source="{txtLoginUser}" property="text" 
+							trigger="{btnTriggerLoginAccess}" triggerEvent="click"/>
+		<mx:StringValidator id="validPasswordText" 
+							required="true" 
+							requiredFieldError="Su clave de acceso es requerida" 
+							source="{txtLoginPassword}" property="text" 
+							trigger="{btnTriggerLoginAccess}" triggerEvent="click"/>
+		
+	</fx:Declarations>
+	<s:layout>
+		<s:HorizontalLayout paddingBottom="5" paddingLeft="5" paddingRight="5" paddingTop="5"
+							verticalAlign="middle"/>
+	</s:layout>
+	<s:Image source="assets/icons/offline.png"/>
+	<s:Label text="Identifícate"
+			 text.RECOVER_PASSWORD_STATE="¿Olvidaste tu cuenta?, escribe tu correo:"/>
+	<s:Label includeIn="LOGIN_STATE" text="Usuario:"/>
+	<s:TextInput id="txtLoginUser" prompt="usuario@seph.gob.mx"/>
+	<s:Label includeIn="LOGIN_STATE" text="Clave:"/>
+	<s:TextInput id="txtLoginPassword" includeIn="LOGIN_STATE" displayAsPassword="true"
+				 prompt="***********"/>
+	<s:Button id="btnTriggerLoginAccess" label="Iniciar"
+			  click="btnTriggerLoginAccess_clickHandler(event)"
+			  label.RECOVER_PASSWORD_STATE="Recuperar"/>
+</s:Group>

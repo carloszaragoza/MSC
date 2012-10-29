@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
-			   xmlns:s="library://ns.adobe.com/flex/spark" 
-			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600">
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:msc="com.msc.*"
+			   xmlns:views="com.carast.msc.views.*"
+			   xmlns:configs="com.carast.msc.configs.*"
+			   minWidth="955" minHeight="600"
+			   minWidth.START_SIGN="800">
+	<s:states>
+		<s:State name="START_SIGN"/>
+		<s:State name="HOME_MSC"/>
+	</s:states>
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
+		<configs:ManagementSchoolControlContext contextView="{this}"/>
 	</fx:Declarations>
+	<views:LoginView includeIn="START_SIGN" left="0" right="0" top="0"/>
 </s:Application>
